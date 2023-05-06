@@ -148,13 +148,19 @@
     <script>
         // Image Carousel Initialization
         $('.image-carousel').slick({
-			slidesToShow: 1,
-            slidesToScroll: 1,
-            arrows: true,
-            dots: true,
-            autoplay: true,
-            autoplaySpeed: 2000,
-        });
+		    slidesToShow: 1,
+		    slidesToScroll: 1,
+		    arrows: true,
+		    dots: false,
+		    autoplay: true,
+		    autoplaySpeed: 2000,
+		    vertical: true, // Enable vertical sliding
+		    verticalSwiping: true, // Enable vertical swiping
+		    speed: 1000, // Set animation speed in milliseconds
+		    easing: 'ease', // Set animation easing
+		    cssEase: 'cubic-bezier(.25, .46, .45, .94)', // Set CSS animation easing
+		});
+
 
         // Hover Effects for Links
         $('.download-link').hover(function () {
