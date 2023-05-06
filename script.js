@@ -2,6 +2,7 @@
 
 // Initialize ScrollReveal
 // script.js
+// script.js
 
 window.addEventListener('DOMContentLoaded', function() {
     ScrollReveal().reveal('.container', {
@@ -10,7 +11,11 @@ window.addEventListener('DOMContentLoaded', function() {
         distance: '20px',
         origin: 'bottom',
         easing: 'ease-in-out',
-        interval: 100
+        interval: 100,
+        opacity: 0,
+        scale: 0.9,
+        viewFactor: 0.3,
+        mobile: false
     });
 
     ScrollReveal().reveal('.image', {
@@ -19,6 +24,10 @@ window.addEventListener('DOMContentLoaded', function() {
         distance: '20px',
         origin: 'bottom',
         easing: 'ease-in-out',
-        interval: 100
+        interval: 100,
+        opacity: 0,
+        scale: 0.9,
+        viewFactor: 0.3,
+        mobile: false
     });
 });
