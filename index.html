@@ -73,33 +73,26 @@
         <p>Here is a picture of the data I processed:</p>
         <img src="Picture1.png" alt="Image of Pie Chart" class="image">
     </div>
-
-    <script>
-        gsap.registerPlugin(ScrollTrigger);
-
-        gsap.to('.container', {
-            x: '30%',
-            rotation: 10,
-            duration: 1,
-            scrollTrigger: {
-                trigger: '.container',
-                start: 'top center',
-                end: 'bottom center',
-                scrub: true
-            }
-        });
-
-        gsap.to('.image', {
-            x: '-30%',
-            rotation: -10,
-            duration: 1,
-            scrollTrigger: {
-                trigger: '.container',
-                start: 'top center',
-                end: 'bottom center',
-                scrub: true
-            }
-        });
-    </script>
+	<script>
+		var controller = new ScrollMagic.Controller();
+		
+		// Define the tween for the horizontal motion effect
+		var horizontalTween = gsap.timeline()
+			.to('.container', { x: '-10%', ease: 'power1.inOut' })
+			.to('.image', { x: '-10%', ease: 'power1.inOut' }, '-=1'); // Start the image animation 1 second before the container animation
+		
+		// Create a ScrollMagic scene for the horizontal motion effect
+		var horizontalScene = new ScrollMagic.Scene({
+			triggerElement: '.container',
+			triggerHook: 'onEnter',
+			duration: '200%' // Adjust the duration as needed
+		})
+		.setTween(horizontalTween)
+		.addTo(controller);
+		
+		// Add debug indicators (optional)
+		horizontalScene.addIndicators({ name: 'Horizontal Motion' });
+		</script>
+		
 </body>
 </html>
