@@ -2,8 +2,6 @@
 <html lang="en">
 <head>
     <title>A Whale of a Greeting</title>
-	<script src="script.js"></script>
-	<script src="scrollreveal.min.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -42,36 +40,21 @@
             text-decoration: none;
             color: blue;
             display: block;
-            margin-bottom: 10px;
-            transition: color 0.3s ease;
-        }
-
-        .download-link:hover {
-            color: red;
-        }
-
-        @media screen and (max-width: 600px) {
-            h1 {
-                font-size: 24px;
-            }
-
-            h2 {
-                font-size: 18px;
-            }
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
-    <div class="container" data-sr>
+    <div class="container">
         <h1>Hello, World!</h1>
         <h2>And Professor Blanch Cohen</h2>
         <p>Welcome to my website where you can see the data and such that I used for the final project.</p>
+        <img src="KahnScore.png" alt="Khan Academy completion image" class="image">
         <a href="Data Tools.docx" download class="download-link">Click to download my Word document, documenting my experience on Khan</a>
         <a href="mlb_elo_latest.csv" download class="download-link">Click to download my CSV file of MLB stats</a>
-        <img src="KahnScore.png" alt="Khan Academy completion image" class="image" data-sr>
         <h2>This is a test</h2>
         <p>Here is a picture of the data I processed:</p>
-        <img src="Picture1.png" alt="Image of Pie Chart" class="image" data-sr>
+        <img src="Picture1.png" alt="Image of Pie Chart" class="image">
     </div>
 </body>
 </html>
