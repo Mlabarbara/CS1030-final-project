@@ -2,8 +2,6 @@
 
 // Initialize ScrollReveal
 // script.js
-// script.js
-
 window.addEventListener('DOMContentLoaded', function() {
     ScrollReveal().reveal('.container', {
         delay: 200,
@@ -16,7 +14,8 @@ window.addEventListener('DOMContentLoaded', function() {
         opacity: 0,
         scale: 0.9,
         viewFactor: 0.3,
-        mobile: true
+        mobile: true,
+        container: document.querySelector('.container') // Specify the container element for the parallax effect
     });
 
     ScrollReveal().reveal('.image', {
@@ -30,6 +29,8 @@ window.addEventListener('DOMContentLoaded', function() {
         opacity: 0,
         scale: 0.9,
         viewFactor: 0.3,
-        mobile: true
+        mobile: true,
+        container: document.querySelector('.container') // Specify the container element for the parallax effect
     });
 });
+// script.js
