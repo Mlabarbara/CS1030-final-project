@@ -76,24 +76,29 @@
         <img src="Picture1.png" alt="Image of Pie Chart" class="image">
     </div>
 	<script>
-        var controller = new ScrollMagic.Controller();
+        // Get the container element
+        var container = document.querySelector('.container');
 
-        // Define the tween for the vertical motion effect
-        var verticalTween = gsap.timeline()
-            .to('.container', { y: '-10%', ease: 'power1.inOut' })
-            .to('.image', { y: '-10%', ease: 'power1.inOut' }, '-=1'); // Start the image animation 1 second before the container animation
+        // Create a new Intersection Observer
+        var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    // Start the animation when the container is in the viewport
+                    gsap.to(entry.target, {
+                        y: -100, // Adjust the vertical movement as needed
+                        opacity: 1,
+                        duration: 1,
+                        ease: 'power4.out'
+                    });
 
-        // Create a ScrollMagic scene for the vertical motion effect
-        var verticalScene = new ScrollMagic.Scene({
-            triggerElement: '.container',
-            triggerHook: 'onEnter',
-            duration: '200%' // Adjust the duration as needed
-        })
-        .setTween(verticalTween)
-        .addTo(controller);
+                    // Unobserve the target to avoid repetition
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
 
-        // Add debug indicators (optional)
-        verticalScene.addIndicators({ name: 'Vertical Motion' });
+        // Observe the container element
+        observer.observe(container);
     </script>
 		
 </body>
