@@ -3,7 +3,9 @@
 <head>
     <title>A Whale of a Greeting</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/animation.gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/debug.addIndicators.min.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -73,18 +75,31 @@
         <p>Here is a picture of the data I processed:</p>
         <img src="Picture1.png" alt="Image of Pie Chart" class="image">
     </div>
-    <script>
-        gsap.registerPlugin(ScrollTrigger);
+	<script>
+        // Get the container element
+        var container = document.querySelector('.container');
 
-        gsap.to(".container", {
-            y: -100,
-            scrollTrigger: {
-                trigger: ".container",
-                start: "top top",
-                end: "+=200%",
-                scrub: true
-            }
-        });
+        // Create a new Intersection Observer
+        var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    // Start the animation when the container is in the viewport
+                    gsap.to(entry.target, {
+                        y: -100, // Adjust the vertical movement as needed
+                        opacity: 1,
+                        duration: 1,
+                        ease: 'power4.out'
+                    });
+
+                    // Unobserve the target to avoid repetition
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        // Observe the container element
+        observer.observe(container);
     </script>
+		
 </body>
 </html>
