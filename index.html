@@ -4,9 +4,7 @@
     <title>A Whale of a Greeting</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
-
-	<style>
+    <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f2f2f2;
@@ -80,6 +78,7 @@
 
         gsap.to(".container", {
             y: -100,
+            ease: "none",
             scrollTrigger: {
                 trigger: ".container",
                 start: "top top",
