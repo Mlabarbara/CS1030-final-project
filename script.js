@@ -1,20 +1,24 @@
 // script.js
 
 // Initialize ScrollReveal
-ScrollReveal().reveal('.container', {
-    delay: 200,
-    duration: 1000,
-    distance: '20px',
-    origin: 'bottom',
-    easing: 'ease-in-out',
-    interval: 100
-});
+// script.js
 
-ScrollReveal().reveal('.image', {
-    delay: 200,
-    duration: 1000,
-    distance: '20px',
-    origin: 'bottom',
-    easing: 'ease-in-out',
-    interval: 100
+window.addEventListener('DOMContentLoaded', function() {
+    ScrollReveal().reveal('.container', {
+        delay: 200,
+        duration: 1000,
+        distance: '20px',
+        origin: 'bottom',
+        easing: 'ease-in-out',
+        interval: 100
+    });
+
+    ScrollReveal().reveal('.image', {
+        delay: 200,
+        duration: 1000,
+        distance: '20px',
+        origin: 'bottom',
+        easing: 'ease-in-out',
+        interval: 100
+    });
 });
